@@ -17,12 +17,11 @@ export interface IFunctionByAccount {
 export class FunctionReader {
   public static $inject = ['$q', 'functionTransformer'];
   public constructor(private $q: IQService, private functionTransformer: any) {}
-
   public loadFunctions(applicationName: string): IPromise<IFunctionSourceData[]> {
-    return API.one('applications', applicationName)
-      .all('functions')
+    return API.all('functions')
       .getList()
       .then((functions: IFunctionSourceData[]) => {
+        functions = functions.filter(fn => fn.functionName.split('-')[0] === applicationName);
         functions = this.functionTransformer.normalizeFunctionSet(functions);
         return this.$q.all(functions.map(fn => this.normalizeFunction(fn)));
       });

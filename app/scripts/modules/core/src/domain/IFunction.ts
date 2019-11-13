@@ -2,7 +2,7 @@ import { ITaggedEntity } from './ITaggedEntity';
 
 export interface IFunctionSourceData {
   cloudProvider?: string;
-  name?: string;
+  functionName?: string;
   provider?: string;
   type?: string;
 }
