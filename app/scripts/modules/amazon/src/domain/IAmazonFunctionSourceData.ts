@@ -40,5 +40,5 @@ export interface IAmazonFunctionSourceData extends IFunctionSourceData {
     targetArn: string;
   };
   KMSKeyArn: string;
-  targetGroups: string[];
+  targetGroups: string;
 }

@@ -28,7 +28,7 @@ export class AwsFunctionTransformer {
     operation: '',
     cloudProvider: functionDef.cloudProvider,
     region: functionDef.region,
-    targetGroups: isEmpty(functionDef.targetGroups) ? '' : functionDef.targetGroups,
+    targetGroups: isEmpty(functionDef.targetGroups) ? '' : functionDef.targetGroups[0],
   });
 
   public constructNewAwsFunctionTemplate(application: Application): IAmazonFunctionUpsertCommand {
